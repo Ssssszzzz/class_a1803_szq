@@ -1,0 +1,41 @@
+1、创建仓库
+
+$ git init --bare
+
+2、克隆     
+
+$ git clone /e/gits/zhongyang jia
+
+
+3、设置姓名邮箱
+
+$git config  user.email "you@example.com"
+$git config  user.name "Your Name"
+
+
+4、提交修改
+$ git add -A    添加到缓存
+
+$ git commit -m "我写的诗" ：注释
+
+$ git push origin master
+
+$ git pull origin master 提取共享文件
+
+
+5、代码找回
+$ git checkout -- 1.txt    (将代码撤回到上一次add的时候)
+
+
+$ git checkout .  (将所有的文件，代码恢复)
+
+6、
+
+$echo "" >> .gitignore (忽略要添加的文件-----""里放文件名)
+
+$git status （检查文件有没添加）
+$git remote -v (查看远程仓库)
+
+$ git remote add origin git@gitee.com:Ssssssz/code_1803a.git   (添加链接)
+ssh-keygen -t rsa -C "846019018@qq.com"  公钥
+ssh -T git@gitee.com 查询
