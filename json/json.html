@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="xixi.html">点击</a>
+
+
+
+
+<script>
+    //xml - json
+    var person=[{
+            name:'张三',
+            age:45,
+            sex:'男'
+
+        },{
+            name:'小红',
+            age:23,
+            sex:'女',
+
+        },{
+            name:'小丽',
+            age:18,
+            sex:'女',
+
+        },{
+            name:'王老五',
+            age:30,
+            sex:'男',
+
+        },{
+            name:'李老四',
+            age:55,
+            sex:'男',
+
+        },{
+            name:'赵小美',
+            age:60,
+            sex:'女',
+
+        },{
+            name:'小明',
+            age:18,
+            sex:'男',
+
+        },{
+            name:'张建国',
+            age:50,
+            sex:'男',
+
+        },{
+            name:'赵芳',
+            age:48,
+            sex:'女',
+
+    },]
+
+    var str=`
+            [{
+              "name":"张三",
+              "age":18,
+              "man":true
+            },{
+              "name":"张三",
+              "age":18,
+              "man":true
+}]
+
+    `;
+
+    /*sessionStorage.clear();       //清除所有
+    sessionStorage.removeItem()       //删除单个
+    sessionStorage.getItem()        //获取值
+    sessionStorage.setItem('age',20); 设置值 */
+
+    var string=(JSON.stringify(person));
+    sessionStorage.setItem('item',string);
+   /* alert(JSON.parse(str)[0].name);*/
+
+    //序列号 -->JSON.stringify(person)  // 数组、对象转字符串
+    //反序列化 --> JSON.parse(str)         //字符串转对象
+</script>
+</body>
+</html>

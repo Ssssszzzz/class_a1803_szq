@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引用类型</title>
+    <style>
+        #alert{
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:300px;
+            height: 300px;
+            transform: translate(-50%,-50%);
+            z-index: 999;
+            color: darkgray;
+
+         }
+    </style>
+</head>
+<body>
+    <div id="alert">
+        <div id="head"></div>
+
+
+    </div>
+
+
+<script>
+
+//    function alert(){
+//
+//    }
+
+
+
+
+
+
+    //number   string    null undefiend     boolen
+
+
+    var a=10;    //number 值类型
+    var b=a;
+    b=20;
+        alert(111);
+
+
+    var arr =[1,2,4];   //引用类型
+    var zzz =arr;
+    zzz[1]=7;
+    arr=null;
+     console.log(zzz[2]);
+            tttt();
+        function tttt(){
+            console.log(11111);
+        }
+
+</script>
+</body>
+</html>

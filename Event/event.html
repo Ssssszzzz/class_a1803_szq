@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 800px;
+        background:chartreuse;
+        }
+    </style>
+</head>
+<body>
+<button id="but">点我试试</button>
+
+<script type="application/javascript" src="mevent.js"></script>
+
+<script>
+
+     var but = document.getElementById('but');
+     function haha(e){
+         e.stopPropagation();    //取消冒泡
+        console.log(e)
+    }
+    but.onclick =haha;
+    document.body.onclick=haha;
+
+
+    but.addEventListener('contextmenu',function(e){
+        e.preventDefault(); //取消浏览器的默认处理
+        alert("我是观察者1,狂被单击");
+    });
+     but.addEventListener('contextmenu',function(){
+        alert("我是观察者2,狂被单击");
+    });
+
+
+     var aa = new Event('contextmenu');
+    but.dispatchEvent(aa);
+
+</script>
+</body>
+</html>

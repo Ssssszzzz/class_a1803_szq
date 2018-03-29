@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <style>
+        #wrap{
+            position: absolute;
+            top: 200px;
+            left: 300px;
+        }
+        .butt{
+            padding: 20px;
+            margin-left: 16px;
+        }
+        #zhpw{
+                margin-left: 10px;
+        }
+        input{
+                border-radius: 5%
+        }
+        .usern{
+                margin-bottom: 10px;
+        }
+        #bgimg{
+            height: 800px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<img src="3-16%20bg.jpg" alt="" id="bgimg">
+        <div id="wrap">
+            <div id="list">
+                <from>
+                    <div class="usern">
+                        <lable  for="username" class="item">账号:</lable>
+                        <input type="text" id="username">
+                        </div>
+                    <div class="passw">
+                        <lable for="password" class="item">密码:</lable>
+                        <input type="password" id="password">
+                        <span id="checkidpw" style="display: none; color: red">*您输入的账号或密码有误</span>
+                        <span id="checkname" style="display: none; color: red">*您输入的账号不存在</span>
+                    </div>
+                    <div class="butt">
+                       <input type="submit" value="登录" id="denglu" onclick="entry()">
+                        <input type="submit" value="注册" id="zhuce" onclick="location.href='usefile.html'">
+                        <input type="submit" value="修改资料" id="zlxg" onclick="location.href='relist.html'">
+                    </div>
+                </from>
+            </div>
+        </div>
+
+
+        <script>
+            var userlista= JSON.parse(localStorage.getItem('item'));
+
+            function entry(){
+                id('checkidpw').style.display='none';
+                var isLogin=0;//0:登录失败 1:登录成功 2:账号不存在
+                if(userlista.length<1)return false;
+                for (var i=0;i<userlista.length;i++){
+                    if (userlista[i][0]==id('username').value){
+                        if (userlista[i][1]==id('password').value){
+                            isLogin=1;
+                              break;
+                        }
+                    }else {
+                        isLogin=2;
+                    }
+                }
+
+                if(isLogin==1){
+                    alert('登录成功');
+                }
+                else {
+                    if(isLogin==2){
+                        id('checkname').style.display='block';
+                    }else{
+                        id('checkidpw').style.display='block';
+                    }
+                }
+            }
+
+            function id(a) {
+					return document.getElementById(a);
+				}
+
+        </script>
+</body>
+</html>

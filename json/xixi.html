@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <title id="tbl"></title>
+
+    <script>
+        var tbl=document.getElementById('tbl');
+        var ttt=sessionStorage.getItem('item');
+        var til=JSON.parse(ttt);
+
+            if(!Array.isArray(til)){
+                    console.log("不是数组")
+            }
+        var str = til.map(function(item){
+            return `
+                <tr>
+                <td>${item.name}</td>
+                <td>${item.age}</td>
+                <td>${item.sex}</td>
+                </tr>
+
+            `;
+        }).join("");
+
+        tbl.innerHTML = str;
+
+    </script>
+</body>
+</html>

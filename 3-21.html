@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业</title>
+</head>
+<body>
+
+<script>
+
+    Date.prototype.toString=function(){
+
+      return this.getFullYear()+"-"+(this.getMonth()+1)+"-"+this.getDate()+" "+
+              this.getHours()+":"+this.getMinutes()+":"+this.getSeconds();
+        }
+        var aa=new Date();
+        //Date.toString(aa);
+        console.log(aa);
+
+
+
+
+
+
+    var bb=[23,34,53,44,54,88,];
+    var minnum =Math.min.apply(null,bb);
+    console.log(minnum);
+
+
+    var chus=Date.parse("1999-12-31");
+    var live=new Date((28800*24*60*60*1000)+chus).toString();
+    console.log(live);
+
+
+
+
+    var xf=new Date('2008-10-11');
+    console.log("2008-10-11 是星期:"+xf.getDay());
+
+
+//    var cif=Math.pow(7,8);
+//    console.log();
+        var sem = Math.pow.apply(window,[7,8]);
+         console.log(sem);
+
+
+     function index(arr,num){
+         if(!Array.isArray(arr)) {
+            console.error("不是数组");
+             return;
+         }
+          for (var i = 0; i < arr.length; i++) {
+                 if (arr[i] == num) {
+                     return i;
+                 }
+             }
+
+     }
+        console.log(index([1,9,3,56,88,-100],56));
+
+
+
+
+
+//     var o= function(){
+//            age:0;
+//
+//         talk:function talk(){
+//            console.log("聊天")
+//         }
+//     }
+
+
+    var zmn={
+        name:"丈母娘",age:47,
+            gcw:function(){
+                console.log("跳广场舞")
+            },
+            chif: function () {
+                console.log("吃饭")
+            },
+            kcb:function(){
+                console.log("进来坐，")
+            },
+
+            slw:function(){
+                console.log("人来了就好了,还带什么礼物呀")
+                zmn.talk();
+
+            },
+            talk:function(){
+                console.log("小伙子做什么工作啊")
+                me.talk();
+
+            }
+    }
+    var me={
+        name:"张三",age:23,work:"程序员",mood:"good",
+            kcb:function(){
+                mood="jz";
+                console.log("阿姨好。。。。。。")
+                zmn.kcb();
+                me.songlw();
+            },
+            songlw:function(){
+                console.log("这是点心意:烟，酒，水果")
+                zmn.slw();
+            },
+            talk:function(){
+                console.log(me.work)
+            }
+    }
+        me.kcb();
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<table id="tabl">
+
+	</table>
+	<form id="updateUsers">
+		姓名: <input type="text" name="name" placeholder="请输入昵称，2-4个汉字"><br>
+		年龄: <input type="text" name="age" placeholder="请输入年龄，10-60岁"><br>
+		性别:  男<input type="radio" name="sex" value="男">
+			女<input type="radio" name="sex" value="女"><br>
+		段位: <select name="rank" id="rank">
+			<option value="">----请选择----</option>
+			<option value="英勇黄铜">英勇黄铜</option>
+			<option value="不屈白银">不屈白银</option>
+			<option value="荣耀黄金">荣耀黄金</option>
+			<option value="华贵铂金">华贵铂金</option>
+			<option value="璀璨钻石">璀璨钻石</option>
+			<option value="超凡大师">超凡大师</option>
+			<option value="最强王者">最强王者</option>
+
+		</select><br>
+	</form>
+	<script type="text/javascript">
+
+			var users = [
+			{
+				name:"张三",
+				age:18,
+				sex:"男",
+				rank:"荣耀黄金"},
+			{
+				name:"李四",
+				age:20,
+				sex:"男",
+				rank:"不屈白银"},
+			{
+				name:"王五",
+				age:17,
+				sex:"女",
+				rank:"荣耀黄金"},
+			{
+				name:"老王",
+				age:22,
+				sex:"男",
+				rank:"最强王者"},
+						];
+						showTable();
+
+						// 表格=""
+						// 循环我的用户数组，每一个用户代表表格的一行 循环每个数组元素，元素对象的每一个属性代表一列
+						// 表格+=行
+					function showTable() {
+						var str=`
+
+						<tr>
+							<th>姓名</th>
+							<th>年龄</th>
+							<th>性别</th>
+							<th>段位</th>
+							<th>编辑</th>
+						</tr>
+
+						`;
+						for(var i in users){
+							str+="<tr>"
+							for(var j in users[i]){
+								str+="<td>"+users[i][j]+"</td>"
+							}
+							str+=`<td>
+							<a href="javascript:del(${i})">删</a>|
+							<a href="javascript:reset(${i})">修改</a>
+							</td>`
+							str+="</tr>"
+						}
+						document.querySelector('#tabl').innerHTML=str;
+					}
+
+					function del(line) {
+							delete users[line];
+							showTable();
+
+						}
+					function reset(line) {
+						var fomr =document.querySelector('#updateUsers')
+						for(var i in users[line]){
+							fomr[i].value=users[line][i];
+						}
+					}
+
+
+
+
+
+				</script>
+			</body>
+			</html>

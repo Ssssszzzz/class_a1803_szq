@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+        /*    var o=function(){
+                 this.age=18;
+
+                 o{age:18}
+            };
+        var xixi = haha.bind(obj);
+            var hehe = haha.bind(window)
+        function haha(){
+            console.log(this.age)
+        }
+
+            var a={};
+
+            o.prototype={
+                chifan:function(){
+                    console.log('吃饭');
+                }
+            };
+
+           var obj = new o();*/
+
+
+
+
+
+
+
+
+    var arr =[1,3,5];
+    function max(){
+        var mm=-1;
+        for (var i =0;i<this.length;i++){
+            this[i]>mm && (mm= this[i]);
+        }
+            return mm;
+    }
+    //console.log(max.bind(arr)());
+    var zz = max.apply(arr);
+    console.log(zz);
+    var cc = Math.max.apply(null,arr);
+
+        function test01(a,b){
+            console.log(a,b)
+        }
+        //test01(1,3);
+        test01.apply(window,[3,4]);
+
+</script>
+</body>
+</html>

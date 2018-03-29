@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--String: trim split replace length 用的多-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<script>
+     var arr="1,2,3,445,664,345,46,-81".split(",");
+
+     for(var i=0; i<arr.length;i++)arr[i]=arr[i]*1;
+
+
+
+
+
+
+
+//    高阶函数
+//     数组排序
+//     数组的结构
+
+//    var i =0;
+//     arr=arr.map(function(item,index,arr1){
+//
+//         return item*1;
+//
+//     });
+//
+//
+//     var isD0=arr.every(function(item,index,arr1){   //所有满足的
+//         return item>0;
+//     });
+//
+//       var  isD1=arr.some(function(item,index,arr1){       //有没有满足的
+//         return item>0;
+//     });
+//
+//
+//       var isD2=arr.filter(function(item,index,arr1){   //取出所有满足的
+//         return item>0;
+//     });
+//       var isD3=arr.forEach(function(item,index,arr1){   //迭代
+//         return item>0;
+//     });
+//        var isD4=arr.reduce(function(a,b,c,d){   //数组的和
+//         return a+b;
+//     });
+
+
+
+
+
+    arr.sort(function(a,b){ //排序
+            return a-b;
+
+//        a大就返回正数
+//        b大就返回负数
+//        a等于b,就返回0
+    });
+
+
+    var zrr=[];
+    zrr.push({
+        name:"张三",
+        age:20
+    });
+     zrr.push({
+        name:"李四",
+        age:17
+    });
+     zrr.push({
+        name:"王五",
+        age:30
+    });
+     zrr.push({
+        name:"赵六",
+        age:43
+    });
+     zrr.push({
+        name:"刘七",
+        age:55
+    });
+
+
+    zrr.sort(function(a,b){
+         return a.age- b.age
+    });
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>资料修改</title>
+    <style>
+          #re_user{
+                position: absolute;
+                top: 90px;
+                left: 400px;
+        }
+        .item{
+            margin-bottom: 7px;
+        }
+        #ok{
+            width: 90px;
+            margin-left: 70px;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+        #check{
+                position: absolute;
+                font-size: 15px;
+                top: 30px;
+                left: 230px;
+        }
+        #bgimg{
+            height: 800px;
+            overflow: hidden;
+        }
+        #useradd{
+              position: absolute;
+                top: 0px;
+                left: 250px;
+                color: crimson;
+        }
+    </style>
+</head>
+<body>
+        <img src="3-16 bg.jpg" alt="" id="bgimg">
+        <h1 id="useradd">资料修改：</h1>
+     <div id="re_user">
+         <from>
+            <div class="item1">
+                <lable for="re_user">账号:</lable>
+                <input type="text" class="item" id="re_name">
+                <span id="tishi" style="color: red">*请输入要更改的账号密码</span>
+            </div>
+             <div class="item1">
+                 <lable for="password">密码:</lable>
+                 <input type="password" class="item" id="re_word">
+                 <span id="checkidpw" style="display: none; color: red">*您输入的账号或密码有误</span>
+             </div>
+             <div class="item1">
+                 <lable for="reage">年龄:</lable>
+                 <input type="text" class="item" id="re_age">
+             </div>
+             <div class="item1" id="sex">
+                 <lable for="sex">性别:</lable>
+                 男<input type="radio" class="item" name="sex" id="man" checked/>
+                 女<input type="radio" class="item" name="sex" id="woman" >
+             </div>
+             <div class="item1">
+                 <lable for="number">电话:</lable>
+                 <input type="text" class="item" id="re_number">
+             </div>
+             <input type="submit" value="查询" id="check" onclick="valify()">
+             <input type="submit" value="提交" id="ok" onclick="setuserlista()">
+             </from>
+
+
+         <script>
+              var userlista= JSON.parse(localStorage.getItem('item'));
+
+
+
+              function id(a) {
+					return document.getElementById(a);
+				}
+
+             function valify(){
+                 var isLogin=0;//0:登录失败 1:登录成功 2:账号不存在
+                id('checkidpw').style.display='none';
+                for (var i=0;i<userlista.length;i++){
+                    if (userlista[i].name==id('re_name').value){
+                        if (userlista[i].password==id('re_word').value){
+                            id('re_age').value=userlista[i].age;
+                            id('re_number').value=userlista[i].number;
+                            if(userlista[i].sex=='男'){
+						    id('man').checked='ture';
+					        }else{
+						    id('woman').checked='ture'
+					        }
+                            isLogin=1;
+                            id('tishi').style.display='none';
+                           break;
+                        }else {
+                            isLogin=0;
+                        }
+                    }else {
+                        isLogin=2;
+                    }
+                }
+                 if(isLogin==0){
+                     id('checkidpw').style.display='block';
+                 }
+            }
+
+
+
+                function setuserlista(){
+
+                    for(var i=0;i<userlista.length;i++){
+                         var isLogin=0;//0:登录失败 1:登录成功 2:账号不存在
+                        if (userlista[i].username==id('re_name').value){
+                            if(userlista[i].password=id('re_word').value){
+
+
+                                userlista[i].username==id('re_name').value
+                                userlista[i].password=id('re_word').value;
+                                userlista[i].age=id('re_age').value;
+                                userlista[i].number=id('re_number').value;
+                                if(userlista[i].sex=='男'){
+                                    userlista[i].sex='男'
+                                }else{
+                                    userlista[i].sex='女'
+                                }
+                                var string= JSON.stringify(userlista);
+                                localStorage.setItem('item',string);
+                                isLogin=1;
+                                break;
+                            }
+                            isLogin=0;
+                        }
+                        isLogin=0;
+                    }
+                    if(isLogin==1){
+                        alert('修改成功')
+                        location.href='3-23main.html'
+                    }else if(isLogin==0){
+                        id('checkidpw').style.display='block';
+                    }
+                }
+         </script>
+     </div>
+</body>
+</html>

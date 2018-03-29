@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            padding-left: 100px;
+        }
+        #frist th{
+            width: 80px;
+            padding-top: 40px;
+            border: none;
+            font-size:23px;
+        }
+        th{
+            border: 1px solid
+        }
+    </style>
+
+</head>
+<body>
+    <div id="title">
+            <table id="mulu">
+                    <tr id="frist">
+
+                    </tr>
+            </table>
+
+    </div>
+<script>
+    var person=[{
+        name:'张三',
+        age:45,
+        sex:'男'
+
+    },{
+        name:'小红',
+        age:23,
+        sex:'女',
+
+    },{
+        name:'小丽',
+        age:18,
+        sex:'女',
+
+    },{
+        name:'王老五',
+        age:30,
+        sex:'男',
+
+    },{
+        name:'李老四',
+        age:55,
+        sex:'男',
+
+    },{
+        name:'赵小美',
+        age:60,
+        sex:'女',
+
+    },{
+        name:'小明',
+        age:18,
+        sex:'男',
+
+    },{
+        name:'张建国',
+        age:50,
+        sex:'男',
+
+    },{
+        name:'赵芳',
+        age:48,
+        sex:'女',
+
+    },]
+
+
+    person.sort(function(a,b){
+        if (a.age == b.age){
+            if(a.sex=="男"){
+                return -1;
+            }else {
+                return 1;
+            }
+        }
+            return a.age- b.age;
+    });
+
+    document.getElementById('frist').innerHTML+=
+            "<th>姓名</th>"+"<th>年龄</th>"+"<th>性别</th>"+"<th>生肖</th>";
+
+
+            function shengxiao(a){
+                    switch(a%12){
+                        case 0: return "狗"
+                        case 1: return "鸡"
+                        case 2: return "猴"
+                        case 3: return "羊"
+                        case 4: return "马"
+                        case 5: return "蛇"
+                        case 6: return "龙"
+                        case 7: return "兔"
+                        case 8: return "虎"
+                        case 9: return "牛"
+                        case 10:return "鼠"
+                        case 11:return "猪"
+
+                    }
+            }
+
+        var conage=0;
+        var conname="";
+        var consex="";
+        for (var i=0;i<person.length;i++){
+            conage=person[i].age;
+            conname=person[i].name;
+            consex=person[i].sex;
+            document.getElementById('mulu').innerHTML+=
+           "<tr><th>"+conname+"</th>"+"<th>"+conage+"</th>"+"<th>"+consex+"</th>"+"<th>"+shengxiao(person[i].age)+"</th></tr>";
+            if(conage>=45){
+                if(consex=="男"){
+                    document.getElementById('mulu').getElementsByTagName('tr')[i+1].style.background='red';
+                }
+
+           }
+        }
+
+
+
+
+
+
+
+
+
+    var str="好好学习天天向上";
+    var str1=str.split("");
+
+    function fz(arr){
+        var sss="";
+        for (var i=0; i<arr.length+i;i++){
+             sss+=arr.pop();
+        }
+        return sss;
+    }
+    console.log(fz(str1));
+
+</script>
+</body>
+</html>

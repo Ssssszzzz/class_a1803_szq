@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账号注册</title>
+    <style>
+        #new_user{
+                position: absolute;
+                top: 90px;
+                left: 400px;
+        }
+        .item{
+            margin-bottom: 7px;
+        }
+        #ok{
+            width: 90px;
+            margin-left: 70px;
+            margin-top: 20px;
+            font-size: 15px;
+        }
+        #bgimg{
+            height: 800px;
+            overflow: hidden;
+        }
+        #useradd{
+                position: absolute;
+                top: 0px;
+                left: 250px;
+                color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <img src="3-16 bg.jpg" alt="" id="bgimg">
+    <h1 id="useradd">用户注册：</h1>
+     <div id="new_user">
+         <from>
+            <div class="item1">
+                <lable for="new_user">账号:</lable>
+                <input type="text" class="item" id="newuser_name">
+                <span id="name_span" style="display: none; color:red">*您输入账号已存在</span>
+            </div>
+             <div class="item1">
+                 <lable for="password">密码:</lable>
+                 <input type="password" class="item" id="newuser_word">
+             </div>
+             <div class="item1">
+                 <lable for="age">年龄:</lable>
+                 <input type="text" class="item" id="newuser_age">
+             </div>
+             <div class="item1" id="sex">
+                 <lable for="sex">性别:</lable>
+                 男<input type="radio" class="item" name="sex" id="man" checked/>
+                 女<input type="radio" class="item" name="sex" id="woman" >
+             </div>
+             <div class="item1">
+                 <lable for="number">电话:</lable>
+                 <input type="text" class="item" id="newuser_number">
+             </div>
+             <input type="submit" value="提交" id="ok" onclick="valify()">
+             </from>
+     </div>
+
+
+    <script>
+        var add_name;
+        var add_age;
+        var add_password;
+        var add_number;
+        var sexnm;
+        var userItem=new Array();
+        var user={};
+        function id(a) {
+					return document.getElementById(a);
+				}
+        function valify() {
+            if(id("man").checked){
+						sexnm="男"
+					}else{
+						sexnm="女"
+					}
+            id('name_span').style.display = 'none';
+             add_name = id('newuser_name').value;
+             add_age = id('newuser_age').value;
+             add_password = id('newuser_word').value;
+             add_number = id('newuser_number').value;
+            user={username:add_name,password:add_password ,age:add_age,sex:sexnm,number:add_number}
+            namerepeat();
+        }
+        function checkname(item){
+            var cont;
+            for (var i=0;i<item.length;i++){
+                cont = item[i].username==id('newuser_name').value;
+            }
+                return cont;
+        }
+        function namerepeat() {
+                if (checkname(userItem)) {
+                    id('name_span').style.display = 'block';
+                } else {
+
+                    userItem.push(user);
+                    alert('注册成功')
+                    var string= JSON.stringify(userItem);
+                    localStorage.setItem('item',string);
+                    //location.href='3-23main.html'
+                }
+
+        }
+
+    </script>
+</body>
+    </html>

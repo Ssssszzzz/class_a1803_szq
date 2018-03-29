@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量作用域</title>
+</head>
+<body>
+    <script>
+        function test(){
+            var a = 10;  //局部变量
+            var b =20;  // 全局变量
+            window.c=20;   // 全局变量        所有绑定在window上的全是全局变量
+
+        d=30;           //全局变量          不加var的是全局变量
+
+    }                   //全局变量：名称污染     局部变量：能及时销毁
+        test();
+
+
+        if(true){             // if和for是没有作用域限制的
+            var aa=100;
+        }
+        (function (w){//沙箱
+            var zzz=188;
+        })(window);
+        w.aaaa=199;
+
+//            时间过的很快,就来到了2016年,javascript作为脚本的语言霸主,迎来了新的春天
+            if(true){
+                let aazz=100;            //加上let后 变成局部变量
+            }
+                        //const 常量 不允许修改
+    </script>
+</body>
+</html>
